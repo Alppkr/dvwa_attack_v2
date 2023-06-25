@@ -1,7 +1,5 @@
 import requests
 import re
-import os
-import urllib.parse
 from pathlib import Path
 
 class AttackSession:

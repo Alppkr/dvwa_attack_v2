@@ -1,10 +1,4 @@
 from attacks.baseClass import AttackSession
-import requests
-import time
-import re
-import os
-import urllib.parse
-import random
 from pathlib import Path
 from utilities.report import eventHandler
 

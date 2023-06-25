@@ -1,6 +1,6 @@
 from attacks.baseClass import AttackSession
 from pathlib import Path
-from utilities.report import eventHandler
+from utilities.eventHandler import eventHandler
 
 class IRA(AttackSession):
     def __init__(self, host, authenticationPath, authPayload):

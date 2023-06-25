@@ -1,7 +1,7 @@
 from attacks.baseClass import AttackSession
 from pathlib import Path
 import urllib.parse
-from utilities.report import eventHandler
+from utilities.eventHandler import eventHandler
 
 class sqlInjection(AttackSession):
     def __init__(self, host, authenticationPath, authPayload):

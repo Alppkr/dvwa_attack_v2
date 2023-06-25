@@ -1,6 +1,6 @@
 from pathlib import Path
 from attacks.baseClass import AttackSession
-from utilities.report import eventHandler
+from utilities.eventHandler import eventHandler
 import os
 import time
 

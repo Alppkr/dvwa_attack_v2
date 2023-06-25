@@ -34,10 +34,13 @@ class fileInclusion(AttackSession):
             while line := f.readline():
                 url = self.host + "vulnerabilities/fi/?"+line.strip()
                 try:
-                    session.get(url)
-                    self.events.sendMessage("Successful","File Inclusion",line.strip())
+                    response = session.get(url)
+                    if response.status_code == 403:
+                        self.events.sendMessage("Blocked","File Inclusion",line.strip())
+                    elif response.status_code == 200:
+                        self.events.sendMessage("Successful","File Inclusion",line.strip())
                 except:
-                    self.events.sendMessage("Blocked","File Inclusion",line.strip())
+                    self.events.sendMessage("Error","File Inclusion","Error on server")
         f.close()
     def startAttack(self):
         self.events.sendMessage("Information","File Inclusion","Attack started")
@@ -65,11 +68,14 @@ class fileUpload(AttackSession):
                      'Upload': 'Upload'}
             files = {'uploaded': open(f,'rb')}
             try:
-                session.post(url,files=files,data=data)
-                self.events.sendMessage("Successful","File Upload",f.strip())
+                response= session.post(url,files=files,data=data)
+                if response.status_code == 403:
+                    self.events.sendMessage("Blocked","File Upload",f.strip())
+                elif response.status_code == 200:
+                    self.events.sendMessage("Successful","File Upload",f.strip())
                 time.sleep(1)
             except:
-                self.events.sendMessage("Blocked","File Upload",f.strip())
+                self.events.sendMessage("Error","File Upload","Error on server")
     def startAttack(self):
         self.events.sendMessage("Information","File Upload","Attack started")
         self.attack(self.authentication())

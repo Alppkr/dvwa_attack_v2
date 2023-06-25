@@ -32,10 +32,13 @@ class bruteForce(AttackSession):
             while line := f.readline():
                 url = self.host + "vulnerabilities/brute/index.php?username=admin&password="+line.strip()+"&Login=Login#"
                 try:
-                    session.get(url)
-                    self.events.sendMessage("Successful","Brute Force",line.strip())
+                    response = session.get(url)
+                    if response.status_code == 403:
+                        self.events.sendMessage("Blocked","Brute Force",line.strip())
+                    elif response.status_code == 200:
+                        self.events.sendMessage("Successful","Brute Force",line.strip())
                 except:
-                    self.events.sendMessage("Blocked","Brute Force",line.strip())
+                    self.events.sendMessage("Error","Brute Force","Error on server")
         f.close()
     def startAttack(self):
         self.events.sendMessage("Information","Brute Force","Attack started")
@@ -60,10 +63,14 @@ class commandInjection(AttackSession):
             while line := f.readline():
                 url =  self.host + "vulnerabilities/exec/index.php"
                 try:
-                    session.post(url,data="ip="+line.strip())
-                    self.events.sendMessage("Successful","Command Injection",line.strip())
+                    response = session.post(url,data="ip="+line.strip())
+                    if response.status_code == 403:
+                        self.events.sendMessage("Blocked","Command Injection",line.strip())
+                    elif response.status_code == 200:
+                        self.events.sendMessage("Successful","Command Injection",line.strip())
+                    
                 except:
-                    self.events.sendMessage("Blocked","Command Injection",line.strip())
+                    self.events.sendMessage("Error","Command Injection","Error on server")
         f.close()
     def startAttack(self):
         self.events.sendMessage("Information","Command Injection","Attack started")

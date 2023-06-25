@@ -9,7 +9,6 @@ class AttackSession:
         self.host = host
         self.authenticationPath = authenticationPath
         self.authPayload= authPayload
-
     def authentication(self):
         with requests.Session() as s:
             url = self.host + self.authenticationPath

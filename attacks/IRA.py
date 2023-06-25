@@ -6,6 +6,7 @@ import os
 import urllib.parse
 import random
 from pathlib import Path
+from utilities.report import eventHandler
 
 class IRA(AttackSession):
     def __init__(self, host, authenticationPath, authPayload):
@@ -22,6 +23,8 @@ class IRA(AttackSession):
  
 
 class bruteForce(AttackSession):
+    events = eventHandler()
+    events.connect(events.callback,sender="Brute Force")
     def __init__(self, host, authenticationPath, authPayload):
         super().__init__(host, authenticationPath, authPayload)
     
@@ -36,16 +39,20 @@ class bruteForce(AttackSession):
                 url = self.host + "vulnerabilities/brute/index.php?username=admin&password="+line.strip()+"&Login=Login#"
                 try:
                     session.get(url)
-                    print('Attack has been completed successfully')
+                    self.events.sendMessage("Successful","Brute Force",line.strip())
                 except:
-                    print("Attack has been block")
+                    self.events.sendMessage("Blocked","Brute Force",line.strip())
         f.close()
     def startAttack(self):
-        print('Bruteforce attack has been started')
+        self.events.sendMessage("Information","Brute Force","Attack started")
         self.attack(self.authentication())
-        print('Bruteforce attack has been completed')
+        self.events.sendMessage("Information","Brute Force","Attack completed")
+        self.events.disconnect(self.events.callback,sender="Brute Force")
+
 
 class commandInjection(AttackSession):
+    events = eventHandler()
+    events.connect(events.callback,sender="Command Injection")
     def __init__(self, host, authenticationPath, authPayload):
         super().__init__(host, authenticationPath, authPayload)
     
@@ -60,11 +67,12 @@ class commandInjection(AttackSession):
                 url =  self.host + "vulnerabilities/exec/index.php"
                 try:
                     session.post(url,data="ip="+line.strip())
-                    print('Attack has been completed successfully')
+                    self.events.sendMessage("Successful","Command Injection",line.strip())
                 except:
-                    print("Attack has been block")
+                    self.events.sendMessage("Blocked","Command Injection",line.strip())
         f.close()
     def startAttack(self):
-        print('Command Injection attack has been started')
+        self.events.sendMessage("Information","Command Injection","Attack started")
         self.attack(self.authentication())
-        print('Command Injection attack has been completed')
+        self.events.sendMessage("Information","Command Injection","Attack completed")
+        self.events.disconnect(self.events.callback,sender="Command Injection")

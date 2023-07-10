@@ -11,6 +11,8 @@ class eventHandler():
             report.report.blockedAttacked(sender)
         elif (signal == "Successful"):
             report.report.successfulAttacked(sender,event=event)
+        elif (signal == "Response Time"):
+            report.report.response(sender,event=event)
         print(event,signal,sender)
         
     def connect(self,listener,sender):

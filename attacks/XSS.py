@@ -37,6 +37,7 @@ class xssDOM(AttackSession):
                         self.events.sendMessage("Blocked","XSS DOM",line.strip())
                     elif response.status_code == 200:
                         self.events.sendMessage("Successful","XSS DOM",line.strip())
+                    self.events.sendMessage("Response Time","XSS DOM",response.elapsed.total_seconds())
                 except:
                     self.events.sendMessage("Error","XSS DOM","Error on server")
                     
@@ -69,6 +70,7 @@ class xssReflect(AttackSession):
                         self.events.sendMessage("Blocked","XSS Reflect",line.strip())
                     elif response.status_code == 200:
                         self.events.sendMessage("Successful","XSS Reflect",line.strip())
+                    self.events.sendMessage("Response Time","XSS Reflect",response.elapsed.total_seconds())
                 except:
                     self.events.sendMessage("Error","XSS Reflect","Error on server")                   
         f.close()
@@ -106,6 +108,7 @@ class xssStored(AttackSession):
                         self.events.sendMessage("Blocked","XSS Stored",line.strip())
                     elif response.status_code == 200:
                         self.events.sendMessage("Successful","XSS Stored",line.strip())
+                    self.events.sendMessage("Response Time","XSS Stored",response.elapsed.total_seconds())
                 except:
                     self.events.sendMessage("Error","XSS Stored","Error on server")                   
                     

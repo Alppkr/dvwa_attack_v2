@@ -39,6 +39,7 @@ class fileInclusion(AttackSession):
                         self.events.sendMessage("Blocked","File Inclusion",line.strip())
                     elif response.status_code == 200:
                         self.events.sendMessage("Successful","File Inclusion",line.strip())
+                    self.events.sendMessage("Response Time","File Inclusion",response.elapsed.total_seconds())
                 except:
                     self.events.sendMessage("Error","File Inclusion","Error on server")
         f.close()
@@ -73,6 +74,7 @@ class fileUpload(AttackSession):
                     self.events.sendMessage("Blocked","File Upload",f.strip())
                 elif response.status_code == 200:
                     self.events.sendMessage("Successful","File Upload",f.strip())
+                self.events.sendMessage("Response Time","File Upload",response.elapsed.total_seconds())
                 time.sleep(1)
             except:
                 self.events.sendMessage("Error","File Upload","Error on server")

@@ -37,8 +37,10 @@ class bruteForce(AttackSession):
                         self.events.sendMessage("Blocked","Brute Force",line.strip())
                     elif response.status_code == 200:
                         self.events.sendMessage("Successful","Brute Force",line.strip())
+                    self.events.sendMessage("Response Time","Brute Force",response.elapsed.total_seconds())
                 except:
                     self.events.sendMessage("Error","Brute Force","Error on server")
+                
         f.close()
     def startAttack(self):
         self.events.sendMessage("Information","Brute Force","Attack started")
@@ -68,6 +70,7 @@ class commandInjection(AttackSession):
                         self.events.sendMessage("Blocked","Command Injection",line.strip())
                     elif response.status_code == 200:
                         self.events.sendMessage("Successful","Command Injection",line.strip())
+                    self.events.sendMessage("Response Time","Command Injection",response.elapsed.total_seconds())
                     
                 except:
                     self.events.sendMessage("Error","Command Injection","Error on server")

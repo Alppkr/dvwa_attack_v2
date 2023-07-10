@@ -38,6 +38,7 @@ class sqlInjectionBasic(AttackSession):
                         self.events.sendMessage("Blocked","SQL Injection Basic",line.strip())
                     elif response.status_code == 200:
                         self.events.sendMessage("Successful","SQL Injection Basic",line.strip())
+                    self.events.sendMessage("Response Time","SQL Injection Basic",response.elapsed.total_seconds())
                 except:
                     self.events.sendMessage("Error","SQL Injection Basic","Error on server")
                     
@@ -71,6 +72,7 @@ class sqlInjectionBlind(AttackSession):
                         self.events.sendMessage("Blocked","SQL Injection Blind",line.strip())
                     elif response.status_code == 200:
                         self.events.sendMessage("Successful","SQL Injection Blind",line.strip())
+                    self.events.sendMessage("Response Time","SQL Injection Blind",response.elapsed.total_seconds())
                 except:
                     self.events.sendMessage("Error","SQL Injection Blind","Error on server")
                     

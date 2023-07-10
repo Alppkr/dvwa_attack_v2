@@ -13,8 +13,8 @@ class RFI(AttackSession):
     def attack():
         pass
     def startAttack(self):
-        fileInclusion("http://web-dvwa.example.com:30064/",'login.php',self.authPayload).startAttack()
-        fileUpload("http://web-dvwa.example.com:30064/",'login.php',self.authPayload).startAttack()
+        fileInclusion(self.host,self.authenticationPath, self.authPayload).startAttack()
+        fileUpload(self.host,self.authenticationPath, self.authPayload).startAttack()
 
  
 

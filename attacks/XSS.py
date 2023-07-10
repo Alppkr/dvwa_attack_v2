@@ -11,9 +11,9 @@ class XSS(AttackSession):
     def attack():
         pass
     def startAttack(self):
-        xssDOM("http://web-dvwa.example.com:30064/",'login.php',self.authPayload).startAttack()
-        xssReflect("http://web-dvwa.example.com:30064/",'login.php',self.authPayload).startAttack()
-        xssStored("http://web-dvwa.example.com:30064/",'login.php',self.authPayload).startAttack()
+        xssDOM(self.host,self.authenticationPath, self.authPayload).startAttack()
+        xssReflect(self.host,self.authenticationPath, self.authPayload).startAttack()
+        xssStored(self.host,self.authenticationPath, self.authPayload).startAttack()
         
 
 class xssDOM(AttackSession):

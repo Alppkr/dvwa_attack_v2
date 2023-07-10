@@ -12,8 +12,8 @@ class sqlInjection(AttackSession):
     def attack():
         pass
     def startAttack(self):
-        sqlInjectionBasic("http://web-dvwa.example.com:30064/",'login.php',self.authPayload).startAttack()
-        sqlInjectionBlind("http://web-dvwa.example.com:30064/",'login.php',self.authPayload).startAttack()
+        sqlInjectionBasic(self.host,self.authenticationPath, self.authPayload).startAttack()
+        sqlInjectionBlind(self.host,self.authenticationPath, self.authPayload).startAttack()
 
  
 

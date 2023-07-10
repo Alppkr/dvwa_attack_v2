@@ -11,8 +11,8 @@ class IRA(AttackSession):
     def attack():
         pass
     def startAttack(self):
-        bruteForce("http://web-dvwa.example.com:30064/",'login.php',self.authPayload).startAttack()
-        commandInjection("http://web-dvwa.example.com:30064/",'login.php',self.authPayload).startAttack()
+        bruteForce(self.host,self.authenticationPath, self.authPayload).startAttack()
+        commandInjection(self.host,self.authenticationPath, self.authPayload).startAttack()
 
  
 

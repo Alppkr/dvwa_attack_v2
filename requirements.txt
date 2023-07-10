@@ -1,0 +1,8 @@
+requests
+pathlib
+pydispatch
+dispatcher
+numpy
+pandas
+matplotlib
+PyDispatcher

@@ -10,7 +10,7 @@ class RFI(AttackSession):
 
     def authentication(self):
         return super().authentication()
-    def attack():
+    def attack(self):
         pass
     def startAttack(self):
         fileInclusion(self.host,self.authenticationPath, self.authPayload).startAttack()

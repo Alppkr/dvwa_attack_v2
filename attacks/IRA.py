@@ -8,7 +8,7 @@ class IRA(AttackSession):
 
     def authentication(self):
         return super().authentication()
-    def attack():
+    def attack(self):
         pass
     def startAttack(self):
         bruteForce(self.host,self.authenticationPath, self.authPayload).startAttack()

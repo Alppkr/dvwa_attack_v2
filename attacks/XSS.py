@@ -8,7 +8,7 @@ class XSS(AttackSession):
 
     def authentication(self):
         return super().authentication()
-    def attack():
+    def attack(self):
         pass
     def startAttack(self):
         xssDOM(self.host,self.authenticationPath, self.authPayload).startAttack()
